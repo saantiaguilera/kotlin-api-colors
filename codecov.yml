@@ -1,0 +1,28 @@
+coverage:
+  status:
+    project:
+      default: off
+      minimum:
+        target: 50%
+      decrement:
+        target: auto
+        threshold: 0.5%
+        if_not_found: success
+      colors:
+        target: 80%
+        flags: colors
+    patch:
+      default: off
+      pr_coverage:
+        target: 50%
+flags:
+  loquacious:
+    paths:
+      - colors/src/main/kotlin/com/saantiaguilera/colors
+comment:
+  layout: "diff, flags"
+  behavior: default
+  require_changes: false
+  require_base: no
+  require_head: no
+  branches: null
