@@ -1,3 +1,5 @@
+apply plugin: 'saantiaguilera.bintray.publish'
+
 buildscript {
     apply from: 'dependencies.gradle'
 
@@ -6,7 +8,12 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.junit.platform:junit-platform-gradle-plugin:1.0.2"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitGradlePluginVersion"
+        classpath "com.saantiaguilera.gradle.publish.helper:core:$publishPluginVersion"
+
+        // We also need the bintray and maven plugins!
+        classpath("com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayPluginVersion")
+        classpath("com.github.dcendents:android-maven-gradle-plugin:$mavenPluginVersion")
     }
 }
 
@@ -14,9 +21,23 @@ allprojects {
     repositories {
         jcenter()
     }
+    group = 'com.saantiaguilera.colors'
+    version = '1.0.0'
+}
+
+publishGlobalConfigurations {
+    bintrayRepository = 'maven'
+
+    githubUrl = "http://github.com/saantiaguilera/kotlin-api-colors"
+
+    bintrayUser = System.getenv('BINTRAY_SANTI_USER')
+    bintrayApiKey = System.getenv('BINTRAY_SANTI_KEY')
+
+    licenseUrl = "http://www.opensource.org/licenses/BSD-3-Clause"
+    licenseName = "BSD 3-Clause"
 }
 
 wrapper {
-    version '4.2'
+    version wrapperVersion
     distributionType Wrapper.DistributionType.ALL
 }

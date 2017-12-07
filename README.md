@@ -1,6 +1,6 @@
 # Colors
 
-[![CircleCI](https://circleci.com/gh/saantiaguilera/kotlin-api-colors/tree/master.svg?style=svg)](https://circleci.com/gh/saantiaguilera/kotlin-api-colors/tree/master) [![codecov](https://codecov.io/gh/saantiaguilera/kotlin-api-colors/branch/master/graph/badge.svg)](https://codecov.io/gh/saantiaguilera/kotlin-api-colors)
+[![CircleCI](https://circleci.com/gh/saantiaguilera/kotlin-api-colors/tree/master.svg?style=svg)](https://circleci.com/gh/saantiaguilera/kotlin-api-colors/tree/master) [![codecov](https://codecov.io/gh/saantiaguilera/kotlin-api-colors/branch/master/graph/badge.svg)](https://codecov.io/gh/saantiaguilera/kotlin-api-colors) [ ![Download](https://api.bintray.com/packages/saantiaguilera/maven/com.saantiaguilera.colors.colors/images/download.svg) ](https://bintray.com/saantiaguilera/maven/com.saantiaguilera.colors.colors/_latestVersion)
 
 Colors is a Kotlin library for changing the style of a string.
 
@@ -8,7 +8,17 @@ Colors has no dependencies (besides kotlin stdlib)
 
 ## Installing
 
-Still is not in bintray. So wait for it.
+Be sure you have `jcenter()` as a repository
+```gradle
+repositories {
+  jcenter()
+}
+```
+
+Add the dependency
+```gradle
+implementation "com.saantiaguilera.colors:colors:latest.version"
+```
 
 ## Usage
 

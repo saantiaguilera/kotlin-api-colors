@@ -1,3 +1,13 @@
 ext {
     kotlinVersion = '1.2.0'
+    junitGradlePluginVersion = '1.0.2'
+    publishPluginVersion = '4.0.0'
+    bintrayPluginVersion = '1.7.3'
+    mavenPluginVersion = '1.5'
+
+    wrapperVersion = '4.2'
+
+    jupiterVersion = '5.0.2'
+    assertjVersion = '3.6.2'
+    jacocoAgentVersion = '0.7.9'
 }

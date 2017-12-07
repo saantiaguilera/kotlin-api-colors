@@ -6,7 +6,7 @@ compileKotlin.kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
 compileTestKotlin.kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
 
 junitPlatform {
-    platformVersion '1.0.2'
+    platformVersion junitGradlePluginVersion
     filters {
         packages {
             include 'com.saantiaguilera.colors'
@@ -44,12 +44,12 @@ jacocoTestReport {
 check.dependsOn jacocoTestReport
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
 
-    testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    testCompile "org.junit.jupiter:junit-jupiter-api:5.0.2"
-    testCompile "org.junit.jupiter:junit-jupiter-engine:5.0.2"
-    testCompile 'org.assertj:assertj-core:3.6.2'
+    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
 
-    testAgent("org.jacoco:org.jacoco.agent:0.7.9:runtime")
+    testAgent("org.jacoco:org.jacoco.agent:$jacocoAgentVersion:runtime")
 }
