@@ -23,8 +23,8 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run:
-          name: Gradle test
-          command: ./gradlew test
+          name: Gradle check
+          command: ./gradlew check
       - run:
           name: Upload coverage
           command: |
