@@ -27,9 +27,7 @@ jobs:
           command: ./gradlew check
       - run:
           name: Upload coverage
-          command: |
-            ./gradlew jacocoTestReport
-            bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+          command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
       - run:
           name: Gradle build
           command: ./gradlew build
