@@ -1,0 +1,22 @@
+buildscript {
+    apply from: 'dependencies.gradle'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:1.0.2"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+wrapper {
+    version '4.2'
+    distributionType Wrapper.DistributionType.ALL
+}
