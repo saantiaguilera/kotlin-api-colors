@@ -1,5 +1,7 @@
 # Colors
 
+[![CircleCI](https://circleci.com/gh/saantiaguilera/kotlin-api-colors/tree/master.svg?style=svg)](https://circleci.com/gh/saantiaguilera/kotlin-api-colors/tree/master) [![codecov](https://codecov.io/gh/saantiaguilera/kotlin-api-colors/branch/master/graph/badge.svg)](https://codecov.io/gh/saantiaguilera/kotlin-api-colors)
+
 Colors is a Kotlin library for changing the style of a string.
 
 Colors has no dependencies (besides kotlin stdlib)
