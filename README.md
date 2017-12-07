@@ -67,6 +67,16 @@ If you with to set background or foreground colors just:
 "Some red in italics".colorize(color = Colors.Color.RED, mode = Colors.Mode.ITALIC)
 ```
 
+### Example
+
+Given a code like this:
+
+<img width="700" alt="screen shot 2017-12-07 at 15 06 59" src="https://user-images.githubusercontent.com/9096015/33730971-68ee989a-db60-11e7-98ab-0cd57b3f4837.png">
+
+We will get:
+
+<img width="210" alt="screen shot 2017-12-07 at 15 06 47" src="https://user-images.githubusercontent.com/9096015/33730969-67eb9934-db60-11e7-9cbb-2f0deda11bbc.png">
+
 ## License
 
 BSD License
