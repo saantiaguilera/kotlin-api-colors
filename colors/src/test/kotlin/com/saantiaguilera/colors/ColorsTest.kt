@@ -52,4 +52,34 @@ class ColorsTest {
         assertThat("$specialChar[34mTestString$specialChar[0m").isEqualTo(Colors.colorize("TestString", Colors.Color.BLUE))
     }
 
+    @Test
+    fun `Test obtaining type from integer`() {
+        assertThat(Colors.Type.FOREGROUND).isEqualTo(Colors.Type.valueOf(0))
+    }
+
+    @Test
+    fun `Test obtaining mode from integer`() {
+        assertThat(Colors.Mode.CONCEAL).isEqualTo(Colors.Mode.valueOf(8))
+    }
+
+    @Test
+    fun `Test obtaining color from integer`() {
+        assertThat(Colors.Color.BLUE).isEqualTo(Colors.Color.valueOf(4))
+    }
+
+    @Test
+    fun `Test obtaining no type from integer`() {
+        assertThat(Colors.Type.valueOf(Integer.MAX_VALUE)).isNull()
+    }
+
+    @Test
+    fun `Test obtaining no mode from integer`() {
+        assertThat(Colors.Mode.valueOf(Integer.MAX_VALUE)).isNull()
+    }
+
+    @Test
+    fun `Test obtaining no color from integer`() {
+        assertThat(Colors.Color.valueOf(Integer.MAX_VALUE)).isNull()
+    }
+
 }

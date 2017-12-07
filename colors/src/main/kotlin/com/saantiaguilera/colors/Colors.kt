@@ -35,7 +35,11 @@ class Colors {
      */
     enum class Type(val code: Int) {
         FOREGROUND(0),
-        BACKGROUND(1)
+        BACKGROUND(1);
+
+        companion object {
+            fun valueOf(code: Int): Type? = Type.values().firstOrNull { code == it.code }
+        }
     }
 
     /**
@@ -58,7 +62,11 @@ class Colors {
         BRIGHT_BLUE(64),
         BRIGHT_MAGENTA(65),
         BRIGHT_CYAN(66),
-        BRIGHT_WHITE(67)
+        BRIGHT_WHITE(67);
+
+        companion object {
+            fun valueOf(code: Int): Color? = Color.values().firstOrNull { code == it.code }
+        }
     }
 
     /**
@@ -74,7 +82,11 @@ class Colors {
         FAST_BLINK(6),
         INVERSE(7),
         CONCEAL(8),
-        STRIKETHROUGH(9)
+        STRIKETHROUGH(9);
+
+        companion object {
+            fun valueOf(code: Int): Mode? = Mode.values().firstOrNull { code == it.code }
+        }
     }
 
 }
