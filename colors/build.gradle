@@ -17,6 +17,24 @@ junitPlatform {
     }
 }
 
+jacoco {
+    toolVersion = "0.7.9"
+}
+
+configurations {
+    testAgent {
+        transitive = false
+    }
+}
+
+tasks.withType(JavaExec) {
+    if (it.name == 'junitPlatformTest') {
+        doFirst {
+            jvmArgs "-javaagent:${configurations.testAgent.singleFile}=destfile=${project.buildDir.name}/jacoco/test.exec"
+        }
+    }
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -25,25 +43,6 @@ jacocoTestReport {
 }
 check.dependsOn jacocoTestReport
 
-project.afterEvaluate {
-    def junitPlatformTestTask = project.tasks.getByName('junitPlatformTest')
-
-    // configure jacoco to analyze the junitPlatformTest task
-    jacoco {
-        // this tool version is compatible with
-        toolVersion = "0.7.6.201602180812"
-        applyTo junitPlatformTestTask
-    }
-
-    // create junit platform jacoco task
-    project.task(type: JacocoReport, "junitPlatformJacocoReport", {
-        sourceDirectories = files("./src/main")
-        classDirectories = files("$buildDir/classes/main")
-        executionData junitPlatformTestTask
-    })
-    check.dependsOn "junitPlatformJacocoReport"
-}
-
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
 
@@ -51,4 +50,6 @@ dependencies {
     testCompile "org.junit.jupiter:junit-jupiter-api:5.0.2"
     testCompile "org.junit.jupiter:junit-jupiter-engine:5.0.2"
     testCompile 'org.assertj:assertj-core:3.6.2'
+
+    testAgent("org.jacoco:org.jacoco.agent:0.7.9:runtime")
 }
