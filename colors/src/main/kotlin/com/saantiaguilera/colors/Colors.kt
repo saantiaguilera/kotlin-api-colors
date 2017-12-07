@@ -20,8 +20,8 @@ class Colors {
                     Type.FOREGROUND -> builder.add(color.code + 30)
                     Type.BACKGROUND -> builder.add(color.code + 40)
                 }
-
             }
+
             if (mode != Mode.NONE) {
                 builder.add(mode.code)
             }
@@ -30,11 +30,17 @@ class Colors {
         }
     }
 
+    /**
+     * Type of color to apply
+     */
     enum class Type(val code: Int) {
         FOREGROUND(0),
         BACKGROUND(1)
     }
 
+    /**
+     * Available colors, based on ANSI 3/4 bit colors
+     */
     enum class Color(val code: Int) {
         BLACK(0),
         RED(1),
@@ -55,6 +61,9 @@ class Colors {
         BRIGHT_WHITE(67)
     }
 
+    /**
+     * Modes to apply to the string
+     */
     enum class Mode(val code: Int) {
         NONE(0),
         BOLD(1),
