@@ -1,14 +1,29 @@
 package com.saantiaguilera.colors
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import kotlin.reflect.full.primaryConstructor
+import kotlin.reflect.jvm.isAccessible
 
 @DisplayName("Color tests")
 class ColorsTest {
 
     companion object {
         val specialChar = 27.toChar()
+    }
+
+    @Test
+    fun `Test Colors class cant be instantiated`() {
+        try {
+            Colors::class.primaryConstructor!!.apply {
+                isAccessible = true
+            }.call()
+            Assertions.fail<Void>("It shouldn'b be possible to instantiate the class")
+        } catch(exception: Exception) {
+            assertThat(exception.cause).isExactlyInstanceOf(IllegalAccessException::class.java)
+        }
     }
 
     @Test

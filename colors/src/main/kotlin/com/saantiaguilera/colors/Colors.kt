@@ -6,7 +6,11 @@ package com.saantiaguilera.colors
  *
  * NOTES: https://en.wikipedia.org/wiki/ANSI_escape_code
  */
-class Colors {
+class Colors private constructor() {
+
+    init {
+        throw IllegalAccessException("This class shouldn't be instantiated")
+    }
 
     companion object {
         /**
