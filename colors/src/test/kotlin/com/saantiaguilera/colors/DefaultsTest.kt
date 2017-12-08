@@ -171,4 +171,35 @@ class DefaultsTest {
 
     }
 
+    @Nested
+    @DisplayName("Possible false positives")
+    class PossibleFalsePositives {
+
+        @Test
+        fun `Test text that has part of sequence starter and introducer at start`() {
+            assertThat("$specialChar[34;32;31m[34;32;31m$specialChar[0m").isEqualTo("[34;32;31m".blue().green().red())
+        }
+
+        @Test
+        fun `Test text that has part of sequence starter and introducer at start but no ending`() {
+            assertThat("$specialChar[34;32;31m[34;32;31$specialChar[0m").isEqualTo("[34;32;31".blue().green().red())
+        }
+
+        @Test
+        fun `Test text that has partial of sequence starter and introducer at start`() {
+            assertThat("$specialChar[34;32;31m[34$specialChar[0m").isEqualTo("[34".blue().green().red())
+        }
+
+        @Test
+        fun `Test text that has only number`() {
+            assertThat("$specialChar[34;32;31m34$specialChar[0m").isEqualTo("34".blue().green().red())
+        }
+
+        @Test
+        fun `Test text that has sequence terminator`() {
+            assertThat("$specialChar[34;32;31m[0m$specialChar[0m").isEqualTo("[0m".blue().green().red())
+        }
+
+    }
+
 }

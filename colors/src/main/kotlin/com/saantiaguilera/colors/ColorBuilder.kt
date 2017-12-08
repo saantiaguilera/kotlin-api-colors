@@ -62,8 +62,8 @@ internal class ColorBuilder(string: String) {
      * it will just strip the text)
      */
     init {
-        text = string.removePrefix(builderPrefix)
-                .replace(Regex("^[\\d$sequenceControl]*$sequenceTerminator"), empty)
+        text = string
+                .replace(Regex("^${Regex.escape(builderPrefix)}[\\d$sequenceControl]*$sequenceTerminator"), empty)
                 .removeSuffix(builderSuffix)
         blocks = string.replace(text, empty)
                 .removeSuffix(builderSuffix)

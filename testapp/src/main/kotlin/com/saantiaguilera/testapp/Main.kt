@@ -20,10 +20,11 @@ class Main {
                     .foreground(Colors.Color.WHITE)
                     .background(Colors.Color.RED))
 
-            System.out.println("Rainbow"
-                    .mapIndexed { index, char -> char.toString().colorize(Colors.Color.valueOf(index + 1)!!) }
+            val nOfColors = Colors.Color.values().size
+            System.out.println((1..nOfColors)
+                    .mapIndexed { i, num -> num.toString().colorize(Colors.Color.values()[i % nOfColors]) }
                     .map { colorizedString -> colorizedString.bold() }
-                    .reduce { left, right -> left + right })
+                    .reduce { left, right -> "$left, $right" })
         }
     }
 }
