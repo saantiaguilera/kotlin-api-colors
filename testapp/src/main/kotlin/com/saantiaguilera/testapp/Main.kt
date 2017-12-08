@@ -3,7 +3,9 @@ package com.saantiaguilera.testapp
 import com.saantiaguilera.colors.*
 
 class Main {
+
     companion object {
+
         @JvmStatic
         fun main(args: Array<String>) {
             // Show some colors
@@ -25,12 +27,8 @@ class Main {
             // Enumerate all the colors we support
             val nOfColors = Colors.Color.values().size
             println((1..nOfColors)
-                    .mapIndexed { i, num -> num.toString().colorize(Colors.Color.values()[i % nOfColors]) }
-                    .map { colorizedString -> colorizedString.bold() }
+                    .map { num -> num.toString().colorize(Colors.Color.values()[num - 1]).bold() }
                     .reduce { left, right -> "$left, $right" })
-
-            // Test that this is not a false positive
-            println("[34;33;32;31m".yellow())
         }
     }
 }

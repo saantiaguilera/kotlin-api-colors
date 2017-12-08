@@ -65,8 +65,9 @@ internal class ColorBuilder(string: String) {
         text = string
                 .replace(Regex("^${Regex.escape(builderPrefix)}[\\d$sequenceControl]*$sequenceTerminator"), empty)
                 .removeSuffix(builderSuffix)
-        blocks = string.replace(text, empty)
+        blocks = string
                 .removeSuffix(builderSuffix)
+                .replace(text, empty)
                 .removeSuffix(sequenceTerminator)
                 .removePrefix(builderPrefix)
                 .split(sequenceControl)

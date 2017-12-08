@@ -200,6 +200,11 @@ class DefaultsTest {
             assertThat("$specialChar[34;32;31m[0m$specialChar[0m").isEqualTo("[0m".blue().green().red())
         }
 
+        @Test
+        fun `Test single 'm' parses correctly and its not evicted`() {
+            assertThat("$specialChar[34;1;32;31mm$specialChar[0m").isEqualTo("m".blue().bold().green().red())
+        }
+
     }
 
 }
